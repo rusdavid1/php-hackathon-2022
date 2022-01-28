@@ -29,18 +29,14 @@ In this section, please provide a brief overview of the design of your applicati
 
 For each of the following functionalities, please tick the box if you implemented it and describe its input and output in your application:
 
-[ ] Conexiune la baza de date \
-[ ] Create programme \
-[ ] Delete programme \
-[ ] Book a programme
+[ x ] Conexiune la baza de date \
+[ x ] Crearea unui programme \
+[ ] Stergerea unui programme \
+[ ] Programarea unui client
 
 ##### Business rules
 
 Please highlight all the validations and mechanisms you identified as necessary in order to avoid inconsistent states and apply the business logic in your application.
-
-##### 3rd party libraries (if applicable)
-
-Please give a brief review of the 3rd party libraries you used and how/ why you've integrated them into your project.
 
 ##### Environment
 
@@ -52,7 +48,7 @@ Please give a brief review of the 3rd party libraries you used and how/ why you'
 
 ### Testing
 
-In this section, please list the steps and/ or tools you've used in order to test the behaviour of your solution.
+    Using Postman v9.11
 
 ## Feedback
 
