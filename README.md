@@ -31,8 +31,8 @@ For each of the following functionalities, please tick the box if you implemente
 
 [ x ] Conexiune la baza de date \
 [ x ] Crearea unui programme \
-[ ] Stergerea unui programme \
-[ ] Programarea unui client
+[ x ] Stergerea unui programme \
+[ x ] Programarea unui client
 
 ##### Business rules
 
