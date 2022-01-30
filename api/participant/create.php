@@ -19,7 +19,6 @@ $data = json_decode(file_get_contents("php://input"));
 $Participant->full_name = $data->full_name;
 $Participant->programme_id = $data->programme_id;
 
-echo json_encode($Participant->full_name);
 
 if($Participant->create()){
     echo json_encode(['message' => 'Participant inregistrat']);

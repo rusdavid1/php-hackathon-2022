@@ -10,6 +10,7 @@ class Programme{
     protected $connection;
     protected $table = 'programmes';
 
+    public $id;
     public $title;
     public $room_id;
     public $start_date;
@@ -35,6 +36,7 @@ class Programme{
         $this->start_date = $row['start_date'];
         $this->end_date = $row['end_date'];
         $this->max_participants = $row['max_participants'];
+        $this->id = $row['id'];
 
         return $statement;
     }
@@ -46,10 +48,10 @@ class Programme{
 
         // Sanitizing user submited data
         $this->title = htmlspecialchars($this->title);
-        $this->room_id = htmlspecialchars($this->room_id);
+        $this->room_id = $this->room_id;
         $this->start_date = htmlspecialchars($this->start_date);
         $this->end_date = htmlspecialchars($this->end_date);
-        $this->max_participants = htmlspecialchars($this->max_participants);
+        $this->max_participants = $this->max_participants;
 
         // Legatura pentru db
 
@@ -70,11 +72,13 @@ class Programme{
         $statement = $this->connection->prepare($query);
 
         // Sanitizing user submited data
+        $this->id = $this->id;
+
         $this->title = htmlspecialchars($this->title);
-        $this->room_id = htmlspecialchars($this->room_id);
+        $this->room_id = $this->room_id;
         $this->start_date = htmlspecialchars($this->start_date);
         $this->end_date = htmlspecialchars($this->end_date);
-        $this->max_participants = htmlspecialchars($this->max_participants);
+        $this->max_participants = $this->max_participants;
 
         // Legatura pentru db
 
@@ -83,16 +87,19 @@ class Programme{
         $statement->bindParam(':start_date', $this->start_date);
         $statement->bindParam(':end_date', $this->end_date);
         $statement->bindParam(':max_participants', $this->max_participants);
+        $statement->bindParam(':id', $this->id);
 
         if($statement->execute()){
             return true;
         }
+
     }
 
     public function delete(){
         $query = "DELETE FROM {$this->table} WHERE id = :id";
 
         $statement = $this->connection->prepare($query);
+
         $statement->bindParam(':id', $this->id);
 
         if($statement->execute()){

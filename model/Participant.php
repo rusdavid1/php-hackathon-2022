@@ -13,13 +13,15 @@ class Participant{
     public $id;
     public $full_name;
     public $programme_id;
+    public $programme_title;
 
     public function __construct($db){
         $this->connection = $db;
     }
 
     public function read(){
-        $query = "SELECT * FROM {$this->table}";
+        // $query = "SELECT * FROM {$this->table}";
+        $query = "SELECT participants.id, participants.full_name, participants.programme_id, programmes.title FROM {$this->table} LEFT JOIN programmes ON programmes.id = participants.programme_id;";
         
         $statement = $this->connection->prepare($query);
         $statement->execute();
@@ -31,6 +33,9 @@ class Participant{
         $this->id = $row['id'];
         $this->full_name = $row['full_name'];
         $this->programme_id = $row['programme_id'];
+        $this->programme_title = $row['title'];
+
+
 
         return $statement;
     }
@@ -42,7 +47,8 @@ class Participant{
 
         // Sanitizing user submited data
         $this->full_name = htmlspecialchars($this->full_name);
-        $this->programme_id = $this->programme_id; //htmlspecialchars nu merge
+        $this->programme_id = $this->programme_id; 
+
 
         // Legatura pentru db
 

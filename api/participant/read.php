@@ -25,12 +25,13 @@ while($row = $response->fetch(PDO::FETCH_ASSOC)){
         'id' => $id,
         'full_name' => $full_name,
         'programme_id' => $programme_id,
-
+        'programme_title' => $title
     ];
 
     $ParticipantArray['data'][] = $ParticipantClass;
 
 }
-echo json_encode($ParticipantArray);
+// for some reason the first participant is omitted
 
+echo json_encode($ParticipantArray);
 ?>

@@ -22,9 +22,9 @@ $Programme->end_date = $data->end_date;
 $Programme->max_participants = $data->max_participants;
 
 if($Programme->create()){
-    echo json_encode(['message' => 'Clasa creata']);
+    echo json_encode(['message' => 'Programme creata']);
 } else{
-    echo json_encode(['message' => 'Clasa nu s-a putut crea']);
+    echo json_encode(['message' => 'Programme-ul nu s-a putut crea']);
 }
 
 ?>

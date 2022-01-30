@@ -16,9 +16,12 @@ $Programme = new Programme($db);
 $data = json_decode(file_get_contents("php://input"));
 
 
-$Programme->full_name = $data->full_name;
-$Programme->programme_id = $data->programme_id;
 $Programme->id = $data->id;
+$Programme->title = $data->title;
+$Programme->room_id = $data->room_id;
+$Programme->start_date = $data->start_date;
+$Programme->end_date = $data->end_date;
+$Programme->max_participants = $data->max_participants;
 
 
 if($Programme->update()){
@@ -26,5 +29,6 @@ if($Programme->update()){
 } else{
     echo json_encode(['message' => 'Nu s-a putut actualiza Programmeul']);
 }
+
 
 ?>
